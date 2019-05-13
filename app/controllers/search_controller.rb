@@ -9,7 +9,13 @@ class SearchController < ApplicationController
 
     response = @conn.get("/api/alt-fuel-stations/v1/nearest.json?fuel_type=ELEC,LPG&location=#{zip}&radius=5.0&access=public")
 
-    @stations = JSON.parse(response.body, symbolize_names: true)
+    @data = JSON.parse(response.body, symbolize_names: true)
+    @stations = @data[:fuel_stations]
+    @station_count = @data[:total_results]
+
+    @stations.each do |station_data|
+      Station.new(station_data)
+    end 
   end
 
 end

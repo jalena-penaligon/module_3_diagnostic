@@ -1,1 +1,10 @@
-Total Results: <%= @stations[:total_results] %>
+Total Results: <%= @station_count %>
+
+<h2>Closest Stations</h2>
+<% @stations.closest.each do |station| %>
+  <%= station.name %>
+  <%= station.address %>
+  <%= station.fuel_type %>
+  <%= station.distance %>
+  <%= station.access_times %>
+<% end %>
