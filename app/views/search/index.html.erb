@@ -3,10 +3,12 @@ Total Results: <%= facade.station_count %>
 <h2>Closest Stations</h2>
 <% facade.closest_stations.each do |station| %>
   <div class="station">
-    <%= station.name %>
-    <%= station.address %>
-    <%= station.fuel_type %>
-    <%= station.distance %>
-    <%= station.access_times %>
+    <ul>
+      <li><%= station.name %></li>
+      <li><%= station.address %></li>
+      <li><%= station.fuel_type %></li>
+      <li><%= station.distance %></li>
+      <li><%= station.access_times %></li>
+    </ul>
   </div>
 <% end %>

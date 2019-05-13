@@ -4,7 +4,6 @@ class NrelService
   end
 
   def get_stations
-    binding.pry
     json("/api/alt-fuel-stations/v1/nearest.json?fuel_type=ELEC,LPG&location=#{@zip}&radius=5.0&access=public")
   end
 
