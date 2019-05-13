@@ -16,15 +16,16 @@ feature 'User can search on root page' do
     fill_in 'zip', :with => '80206'
     click_button "Locate"
 
-    expect(page).to have_content("Total Results: 90")
+    expect(page).to have_content("Total Results: 93")
   end
 
-  xit 'shows 15 closest stations within 5 miles' do
+  it 'shows 15 closest stations within 5 miles' do
     visit '/'
-    fill_in 'q', :with => '80216'
+    fill_in 'zip', :with => '80206'
     click_button "Locate"
 
-    expect(page).to have_content("Total Results: 90")
+    expect(page).to have_content("Closest Stations")
+    expect(page).to have_css(".station", count: 15)
   end
 end
 
