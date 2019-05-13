@@ -13,7 +13,15 @@ end
 feature 'User can search on root page' do
   it 'shows all results by zipcode' do
     visit '/'
-    fill_in[q] with: 80206
+    fill_in 'zip', :with => '80206'
+    click_button "Locate"
+
+    expect(page).to have_content("Total Results: 90")
+  end
+
+  xit 'shows 15 closest stations within 5 miles' do
+    visit '/'
+    fill_in 'q', :with => '80216'
     click_button "Locate"
 
     expect(page).to have_content("Total Results: 90")
