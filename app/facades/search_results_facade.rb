@@ -1,10 +1,14 @@
-class SearchResultsFacade
+class SearchResultsFacade < ApplicationController
   def initialize(zip)
     @zip = zip
   end
 
-  def stations
-    station_info.map do |station_info|
+  def station_count
+    station_info[:total_results]
+  end
+
+  def closest_stations
+    station_info[:fuel_stations].map do |station_info|
       Station.new(station_info)
     end
   end
@@ -12,11 +16,11 @@ class SearchResultsFacade
   private
 
   def station_info
-    service.get_stations
+    @_station_info ||= service.get_stations
   end
 
   def service
-    NrelService.new(@zip)
+    @_service ||= NrelService.new(@zip)
   end
 
 end

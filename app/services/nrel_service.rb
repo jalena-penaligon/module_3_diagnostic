@@ -4,6 +4,7 @@ class NrelService
   end
 
   def get_stations
+    binding.pry
     json("/api/alt-fuel-stations/v1/nearest.json?fuel_type=ELEC,LPG&location=#{@zip}&radius=5.0&access=public")
   end
 
@@ -11,7 +12,7 @@ class NrelService
 
   def json(url)
     response = conn.get(url)
-    data = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
+    data = JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn

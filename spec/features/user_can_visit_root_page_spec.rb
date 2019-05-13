@@ -16,6 +16,7 @@ feature 'User can search on root page' do
     fill_in 'zip', :with => '80206'
     click_button "Locate"
 
+
     expect(page).to have_content("Total Results: 93")
   end
 
