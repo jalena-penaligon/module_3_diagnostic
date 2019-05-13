@@ -4,11 +4,11 @@ Total Results: <%= facade.station_count %>
 <% facade.closest_stations.each do |station| %>
   <div class="station">
     <ul>
-      <li><%= station.name %></li>
-      <li><%= station.address %></li>
-      <li><%= station.fuel_type %></li>
-      <li><%= station.distance %></li>
-      <li><%= station.access_times %></li>
+      <li>Name: <%= station.name %></li>
+      <li>Address: <%= station.address %></li>
+      <li>Fuel Type: <%= station.fuel_type %></li>
+      <li>Distance from Zipcode: <%= station.distance %></li>
+      <li>Acces Times: <%= station.access_times %></li>
     </ul>
   </div>
 <% end %>

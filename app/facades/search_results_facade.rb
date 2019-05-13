@@ -16,11 +16,11 @@ class SearchResultsFacade < ApplicationController
   private
 
   def station_info
-    @_station_info ||= service.get_stations
+    @station_info ||= service.get_stations
   end
 
   def service
-    @_service ||= NrelService.new(@zip)
+    @service ||= NrelService.new(@zip)
   end
 
 end
