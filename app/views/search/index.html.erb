@@ -1,7 +1,7 @@
 Total Results: <%= @station_count %>
 
 <h2>Closest Stations</h2>
-<% @stations.closest.each do |station| %>
+<% facade.stations.each do |station| %>
   <%= station.name %>
   <%= station.address %>
   <%= station.fuel_type %>
