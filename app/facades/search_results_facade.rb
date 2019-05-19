@@ -10,7 +10,7 @@ class SearchResultsFacade < ApplicationController
   def closest_stations
     station_info[:fuel_stations].map do |station_info|
       Station.new(station_info)
-    end.first(15)
+    end
   end
 
   private
